@@ -38,6 +38,22 @@ h3 {
   margin: 0;
 }
 
+/* src/components/LogoutButton/LogoutButton.css */
+/* src/components/LogoutButton/LogoutButton.css */
+.logout-button {
+  padding: 10px 20px;
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.logout-button:hover {
+  background-color: #ff1a1a;
+}
+
+
 /* Buttons */
 button {
   background-color: #3498db;
