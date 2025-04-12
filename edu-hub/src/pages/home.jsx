@@ -4,7 +4,7 @@ const Home = () => {
   return (
 <div className="home-wrapper">
       <main className="home-main landing">
-        <h1 className="landing-brand">&lt;EDU-HUB&gt;</h1>
+        <h1 className="landing-brand" >&lt;EDU-HUB&gt;</h1>
         <p className="landing-subtext">
           Instant TA help, AI-powered tools, and smart study plans — all in one hub.
         </p>

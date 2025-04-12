@@ -45,12 +45,13 @@ const Login = () => {
       const data = await res.json();
       if (!res.ok) throw new Error(data.message);
   
-      setFirstName(data.user.firstName)
-      setLastName(data.user.lastName)
-      setRole(data.user.role)
-
-      login(data.user.role); // AuthContext role update
-      navigate(`/dashboard/${data.user.role}`);
+      const role = data.user.role.toLowerCase(); // Use directly
+  
+      setRole(role);
+      const userFirstName = data.user.firstName;
+  
+      login(role, userFirstName); // Updates AuthContext
+      navigate(`/dashboard/${role}`); // Navigate immediately with role
     } catch (err) {
       alert(err.message);
     } finally {

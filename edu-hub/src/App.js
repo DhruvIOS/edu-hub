@@ -5,13 +5,14 @@ import Login from "./pages/Login";
 import SignUp from "./pages/Singup";
 // import DashboardProfessor from "./pages/DashboardProfessor";
 // import DashboardTA from "./pages/DashboardTA";
-// import DashboardStudent from "./pages/DashboardStudent";
-// import ProtectedRoute from "./components/ProtectedRoute";
+import DashboardStudent from "./pages/DashboardStudent";
+import ProtectedRoute from "./components/ProtectedRoute";
 import Navbar from "./components/Navbar";
 import { AuthProvider } from "./context/AuthContext";
 import Home from "./pages/Home";
 // import AskTA from "./pages/AskTA";
 // import ExamHelper from "./pages/ExamHelper";
+import RedirectToDashboard from "./pages/RedirectToDashboard";
 import "./styles.css";
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
+            <Route path="/dashboard" element={<RedirectToDashboard />} />
             {/* <Route
               path="/dashboard/prof"
               element={
@@ -40,14 +42,14 @@ function App() {
                 </ProtectedRoute>
               }
             /> */}
-            {/* <Route
+         <Route
               path="/dashboard/student"
               element={
                 <ProtectedRoute allowedRoles={["student"]}>
                   <DashboardStudent />
                 </ProtectedRoute>
               }
-            /> */}
+            />
             {/* <Route
               path="/ask"
               element={
