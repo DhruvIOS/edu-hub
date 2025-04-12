@@ -11,8 +11,8 @@ const ProfessorDashboard = () => {
 
   return (
     <div className="dashboard">
-      <h2 className="text-center">🧑‍🏫 Professor Dashboard</h2>
-      <p className="text-center mb-20">Manage your courses, TAs, students, and announcements.</p>
+      <h1 className="text-center">🧑‍🏫 Professor Dashboard</h1>
+
 
       {/* Create Course */}
       <div className="card">

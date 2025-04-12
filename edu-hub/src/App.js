@@ -3,7 +3,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
 import SignUp from "./pages/Singup"; // Make sure filename matches Signup if changed
-// import DashboardProfessor from "./pages/DashboardProfessor";
+import DashboardProfessor from "./pages/DashboardProfessor";
 // import DashboardTA from "./pages/DashboardTA";
 import DashboardStudent from "./pages/DashboardStudent";
 import ProtectedRoute from "./components/ProtectedRoute";
@@ -32,14 +32,14 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/dashboard" element={<RedirectToDashboard />} />
-            {/* <Route
-              path="/dashboard/prof"
+            <Route
+              path="/dashboard/professor"
               element={
-                <ProtectedRoute allowedRoles={["prof"]}>
+                <ProtectedRoute allowedRoles={["professor"]}>
                   <DashboardProfessor />
                 </ProtectedRoute>
               }
-            /> */}
+            />
             {/* <Route
               path="/dashboard/ta"
               element={
