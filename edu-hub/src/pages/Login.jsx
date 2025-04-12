@@ -7,7 +7,7 @@ const Login = () => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
 
-  const defaultRole = searchParams.get("role") || "student";
+  const defaultRole = searchParams.get("role") || "Student";
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
@@ -22,8 +22,9 @@ const Login = () => {
     e.preventDefault();
     setLoading(true);
 
+    // Simulate backend auth + role-based redirect
     setTimeout(() => {
-      login(defaultRole);
+      login(defaultRole); // updates AuthContext
       navigate(`/dashboard/${defaultRole}`);
       setLoading(false);
     }, 1000);
@@ -59,7 +60,6 @@ const Login = () => {
         </button>
       </form>
 
-      {/* Sign-Up Prompt */}
       <div className="login-footer">
         <p className="text-center">
           Don’t have an account?{" "}
