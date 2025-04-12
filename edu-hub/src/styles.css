@@ -1182,17 +1182,42 @@ body {
 
 /* Exam Helper */
 
-.exam-helper-container {
-  padding: 20px;
-  font-family: 'Segoe UI', sans-serif;
+:root {
+  --leaf-green: #267c3c;
+  --navy-blue: #002366;
+  --pastel-green: #f1fdf2;
+  --white: #ffffff;
+  --error-red: #aa0000;
 }
 
+/* Main container */
+.exam-helper-container {
+  padding: 25px;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--pastel-green);
+  min-height: 100vh;
+}
+
+/* Section heading */
+.exam-helper-container h2 {
+  color: var(--leaf-green);
+  font-size: 28px;
+  font-weight: bold;
+}
+
+/* Upload box */
 .upload-area {
-  border: 2px dashed #aaa;
+  border: 2px dashed #bbb;
+  background-color: var(--white);
   padding: 20px;
-  border-radius: 10px;
-  margin-bottom: 20px;
-  background-color: #f9f9f9;
+  border-radius: 12px;
+  margin-top: 20px;
+}
+
+.upload-area p {
+  margin: 0 0 10px;
+  color: var(--leaf-green);
+  font-size: 16px;
 }
 
 .upload-area input[type="file"] {
@@ -1201,40 +1226,84 @@ body {
 
 .upload-area ul {
   margin-top: 10px;
+  padding-left: 20px;
+  color: var(--leaf-green);
 }
 
 .upload-area button {
   margin-top: 15px;
-  padding: 10px 15px;
-  background-color: #0066ff;
-  color: white;
+  padding: 10px 16px;
+  background-color: var(--navy-blue);
+  color: var(--white);
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
+  font-weight: bold;
   cursor: pointer;
 }
 
+/* Analyzing... */
 .status-area {
   font-size: 16px;
-  color: #444;
+  color: var(--navy-blue);
   margin: 20px 0;
 }
 
+/* Results Section */
 .results-area {
-  background-color: #fff;
+  margin-top: 30px;
+  background-color: var(--white);
   padding: 20px;
+  border-radius: 12px;
   border: 1px solid #ddd;
-  border-radius: 10px;
+}
+
+.results-area h3 {
+  color: var(--navy-blue);
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.results-area h4 {
+  color: var(--leaf-green);
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 15px;
 }
 
 .topic-breakdown ul,
 .suggestions ul {
-  list-style: disc;
-  margin-left: 20px;
+  list-style: none;
+  padding-left: 0;
+  margin: 10px 0;
 }
 
+.topic-breakdown li,
+.suggestions li {
+  color: var(--leaf-green);
+  margin: 6px 0;
+  font-size: 16px;
+}
+
+.topic-breakdown li::before {
+  content: "● ";
+  color: var(--leaf-green);
+  margin-right: 6px;
+}
+
+.suggestions li:nth-child(1)::before {
+  content: "📌 ";
+  color: var(--navy-blue);
+}
+.suggestions li:nth-child(n+2)::before {
+  content: "• ";
+  color: var(--leaf-green);
+  margin-right: 6px;
+}
+
+/* Disclaimer */
 .disclaimer {
   margin-top: 20px;
   font-size: 14px;
-  color: #aa0000;
+  color: var(--error-red);
   font-weight: bold;
 }
