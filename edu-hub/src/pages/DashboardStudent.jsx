@@ -1,11 +1,16 @@
 import { Link } from "react-router-dom";
 import "../styles.css"; 
+import { useAuth } from "../context/AuthContext";
+
+
 
 const DashboardStudent = () => {
+  const { firstName } = useAuth();
+
   return (
     <div className="student-dashboard">
       <div className="dashboard-header">
-        <h1>🎓 Welcome to Your Dashboard</h1>
+        <h1>🎓 Welcome {firstName}</h1>
         <p>Everything you need to succeed — powered by EDU-HUB.</p>
       </div>
 
