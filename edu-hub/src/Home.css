@@ -1,0 +1,78 @@
+.home-wrapper {
+  font-family: "Segoe UI", sans-serif;
+  min-height: 100vh;
+  background-color: #f5fff6;
+  padding: 0;
+}
+
+.home-nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 40px;
+  font-weight: bold;
+  border-bottom: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.logo {
+  font-style: italic;
+}
+
+.auth-links a {
+  color: #2e7d32;
+  margin-left: 10px;
+  text-decoration: none;
+}
+
+.home-main {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.welcome-text {
+  font-size: 36px;
+  margin-bottom: 40px;
+  color: #2e7d32;
+}
+
+.home-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+}
+
+.updates-box {
+  width: 300px;
+  min-height: 200px;
+  text-align: left;
+}
+
+.right-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 300px;
+}
+
+.card {
+  background-color: white;
+  padding: 20px;
+  border-radius: 12px;
+  border: 2px solid #81c784;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.card h3 {
+  margin-bottom: 12px;
+}
+
+.clickable {
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.clickable:hover {
+  background-color: #e8f5e9;
+  border-color: #66bb6a;
+}

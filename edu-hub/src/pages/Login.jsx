@@ -1,16 +1,14 @@
-import { useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const Login = () => {
   const { login } = useAuth();
   const navigate = useNavigate();
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [taProfEmail, setTaProfEmail] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleLogin = (e) => {
     e.preventDefault();
 
     let role = "student";
@@ -28,38 +26,27 @@ const Login = () => {
         LOGIN with your college credentials!
       </p>
 
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleLogin}>
         <input
           className="input-field"
           type="email"
-          placeholder="EMAIL"
+          placeholder="Email"
+          required
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          required
         />
-
         <input
           className="input-field"
           type="password"
           placeholder="Password"
+          required
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          required
         />
 
-        <input
-          className="input-field ta-box"
-          type="email"
-          placeholder="Only for TA : Enter prof. email"
-          value={taProfEmail}
-          onChange={(e) => setTaProfEmail(e.target.value)}
-        />
-
-        <div className="arrow-btn-wrapper">
-          <button type="submit" className="auth-submit-btn">
-            Log In
-          </button>
-        </div>
+        <button type="submit" className="auth-submit-btn">
+          Log In
+        </button>
       </form>
     </div>
   );
