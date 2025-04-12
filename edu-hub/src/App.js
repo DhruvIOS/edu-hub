@@ -4,13 +4,13 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
 import SignUp from "./pages/Singup"; // Make sure filename matches Signup if changed
 import DashboardProfessor from "./pages/DashboardProfessor";
-// import DashboardTA from "./pages/DashboardTA";
+import DashboardTA from "./pages/DashboardTA";
 import DashboardStudent from "./pages/DashboardStudent";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Navbar from "./components/Navbar";
 import { AuthProvider } from "./context/AuthContext";
 import Home from "./pages/Home";
-// import AskTA from "./pages/AskTA";
+import AskTA from "./pages/AskTA";
 // import ExamHelper from "./pages/ExamHelper"; // Make sure to import if using route below
 import RedirectToDashboard from "./pages/RedirectToDashboard";
 import "./styles.css";
@@ -41,14 +41,14 @@ function App() {
                 </ProtectedRoute>
               }
             />
-            {/* <Route
+            <Route
               path="/dashboard/ta"
               element={
                 <ProtectedRoute allowedRoles={["ta"]}>
                   <DashboardTA />
                 </ProtectedRoute>
               }
-            /> */}
+            />
            <Route
               path="/dashboard/student"
               element={
@@ -75,6 +75,8 @@ function App() {
                 </ProtectedRoute>
               }
             />
+
+            <Route path="/ask" element={<AskTA />} />
             
             <Route path="/exam-helper" element={<ExamHelper />} />
             {/* --- END ADDED ROUTE --- */}
