@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 const SignUp = () => {
   const { login } = useAuth();
   const navigate = useNavigate();
-
   const [role, setRole] = useState("student");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -55,18 +54,16 @@ const SignUp = () => {
           <input
             className="input-field ta-box"
             type="email"
-            placeholder="Enter professor's email (required for TAs)"
+            placeholder="Enter professor's email"
             value={profEmail}
             onChange={(e) => setProfEmail(e.target.value)}
             required
           />
         )}
 
-        <div className="arrow-btn-wrapper">
-          <button type="submit" className="auth-submit-btn">
-            Create Account
-          </button>
-        </div>
+        <button type="submit" className="auth-submit-btn">
+          Create Account
+        </button>
       </form>
     </div>
   );
