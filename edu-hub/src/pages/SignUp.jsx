@@ -5,6 +5,7 @@ import { auth } from "../firebase"
 import { createUserWithEmailAndPassword } from "firebase/auth"
 
 const SignUp = () => {
+
   const [firstName, setFirstName] = useState("")
     const [lastName, setLastName] = useState("")
     const [email, setEmail] = useState("")
@@ -13,6 +14,7 @@ const SignUp = () => {
     const [isVisible, setVisible] = useState(false);
 
     const handleDropDownChange = (value) =>{
+
 
         setVisible(value === "TA")
         
@@ -90,18 +92,16 @@ const SignUp = () => {
           <input
             className="input-field ta-box"
             type="email"
-            placeholder="Enter professor's email (required for TAs)"
+            placeholder="Enter professor's email"
             value={profEmail}
             onChange={(e) => setProfEmail(e.target.value)}
             required
           />
         )}
 
-        <div className="arrow-btn-wrapper">
-          <button type="submit" className="auth-submit-btn">
-            Create Account
-          </button>
-        </div>
+        <button type="submit" className="auth-submit-btn">
+          Create Account
+        </button>
       </form>
     </div>
   );
