@@ -1,6 +1,8 @@
 import { useAuth } from "../context/AuthContext";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../firebase";
 
 const Login = () => {
   const { login, role } = useAuth();
@@ -12,22 +14,48 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
 
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [roleName, setRole] = useState("");
+
+  const auth = getAuth();
+  
+
   useEffect(() => {
     if (role) {
       navigate(`/dashboard/${role}`);
     }
   }, [role, navigate]);
 
-  const handleLogin = (e) => {
+
+  const handleLogin = async (e) => {
     e.preventDefault();
     setLoading(true);
+  
+    try {
+      const firebaseUser = await signInWithEmailAndPassword(auth, email, password);
+      const idToken = await firebaseUser.user.getIdToken();
+  
+      const res = await fetch("http://localhost:5000/api/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ token: idToken }),
+      });
+  
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.message);
+  
+      setFirstName(data.user.firstName)
+      setLastName(data.user.lastName)
+      setRole(data.user.role)
 
-    // Simulate backend auth + role-based redirect
-    setTimeout(() => {
-      login(defaultRole); // updates AuthContext
-      navigate(`/dashboard/${defaultRole}`);
+      login(data.user.role); // AuthContext role update
+      navigate(`/dashboard/${data.user.role}`);
+    } catch (err) {
+      alert(err.message);
+    } finally {
       setLoading(false);
-    }, 1000);
+    }
   };
 
   return (
