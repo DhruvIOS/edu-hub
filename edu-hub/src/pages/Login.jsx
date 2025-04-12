@@ -1,22 +1,32 @@
 import { useAuth } from "../context/AuthContext";
-import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useNavigate, useSearchParams } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 const Login = () => {
-  const { login } = useAuth();
+  const { login, role } = useAuth();
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+
+  const defaultRole = searchParams.get("role") || "student";
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    if (role) {
+      navigate(`/dashboard/${role}`);
+    }
+  }, [role, navigate]);
 
   const handleLogin = (e) => {
     e.preventDefault();
+    setLoading(true);
 
-    let role = "student";
-    if (email.includes("prof")) role = "prof";
-    else if (email.includes("ta")) role = "ta";
-
-    login(role);
-    navigate(`/dashboard/${role}`);
+    setTimeout(() => {
+      login(defaultRole);
+      navigate(`/dashboard/${defaultRole}`);
+      setLoading(false);
+    }, 1000);
   };
 
   return (
@@ -44,10 +54,20 @@ const Login = () => {
           onChange={(e) => setPassword(e.target.value)}
         />
 
-        <button type="submit" className="auth-submit-btn">
-          Log In
+        <button type="submit" className="auth-submit-btn" disabled={loading}>
+          {loading ? "Logging in..." : "Log In"}
         </button>
       </form>
+
+      {/* Sign-Up Prompt */}
+      <div className="login-footer">
+        <p className="text-center">
+          Don’t have an account?{" "}
+          <a href={`/signup?role=${defaultRole}`} className="highlight-link">
+            Sign Up here
+          </a>
+        </p>
+      </div>
     </div>
   );
 };
