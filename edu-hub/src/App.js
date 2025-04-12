@@ -14,7 +14,8 @@ import Home from "./pages/Home";
 // import ExamHelper from "./pages/ExamHelper"; // Make sure to import if using route below
 import RedirectToDashboard from "./pages/RedirectToDashboard";
 import "./styles.css";
-
+//import ExamHelperPage from './pages/ExamHelperPage'; // <-- Add this 
+import ExamHelper from "./pages/ExamHelper"; // At the top
 import ExamCreator from "./pages/ExamCreator"; // Import ExamCreator
 
 // Consider importing ExamHelperPage if you uncomment its route below
@@ -74,17 +75,20 @@ function App() {
                 </ProtectedRoute>
               }
             />
+            
+            <Route path="/exam-helper" element={<ExamHelper />} />
             {/* --- END ADDED ROUTE --- */}
-
-            {/* <Route
+{/* 
+             <Route
               path="/exam-helper"
               element={
                 <ProtectedRoute allowedRoles={["student"]}>
-                   {/* <ExamHelper /> Uncomment import above if using this */}
-                   {/* OR <ExamHelperPage/> if you created that separate page */}
-                {/* </ProtectedRoute>
+                   <ExamHelper /> 
+                   OR <ExamHelperPage/> 
+                { </ProtectedRoute>
               }
-            /> */}
+            />  */}
+
 
           </Routes>
         </div>
