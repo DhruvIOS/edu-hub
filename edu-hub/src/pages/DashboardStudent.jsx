@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "../styles.css"; 
 import { useAuth } from "../context/AuthContext";
-
+import { ExamCreator } from "./ExamCreator"
 
 
 const DashboardStudent = () => {
@@ -33,8 +33,9 @@ const DashboardStudent = () => {
           <p>Stuck? Ask EDU AI to explain any topic in seconds.</p>
         </Link>
 
-        <Link to="/practice" className="dashboard-card">
+        <Link to="/practice-generator" className="dashboard-card">
           <div className="card-icon">📝</div>
+          {/* <ExamDisplay /> */}
           <h3>Practice Generator</h3>
           <p>Get MCQs & short answers for fast self-testing.</p>
         </Link>
