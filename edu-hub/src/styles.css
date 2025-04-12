@@ -840,3 +840,325 @@ pre {
 .chat-send-btn:hover {
   background: #1b5e20;
 }
+
+
+/* Exam Creator */
+
+/* src/ExamCreator.css */
+
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif; /* Or your preferred font */
+  background-color: #f7fdf7; /* Pastel Green Background */
+  color: #1e8449; /* Default text: Leaf Green */
+}
+
+.exam-creator-container {
+  display: flex;
+  min-height: 100vh;
+  transition: justify-content 0.5s ease-in-out;
+}
+
+/* Initial state: Center the sidebar content */
+.exam-creator-container.initial-view {
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 50px;
+  background-color: #f7fdf7; /* Ensure background matches body */
+}
+
+/* Final state: Two-column layout */
+.exam-creator-container.generated-view {
+  justify-content: flex-start;
+  align-items: stretch;
+}
+
+/* General button styling base */
+.btn {
+  padding: 10px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-top: 10px;
+  margin-right: 10px;
+  transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease,
+    opacity 0.2s ease;
+  text-align: center;
+  border: 1px solid transparent;
+}
+
+.btn:hover {
+  opacity: 0.85;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Exam Display */
+
+/* src/ExamDisplay.css */
+.exam-display-wrapper {
+  flex-grow: 1;
+  display: flex;
+  transition: opacity 0.5s ease-in-out, width 0.5s ease-in-out,
+    padding 0.5s ease-in-out;
+  overflow: hidden;
+}
+
+.exam-display-wrapper.hidden {
+  opacity: 0;
+  width: 0;
+  padding: 0;
+  flex-grow: 0;
+}
+
+.exam-display {
+  width: 100%;
+  padding: 30px 40px;
+  background-color: #ffffff; /* White Background */
+  overflow-y: auto;
+  border-left: 1px solid #d9f4dd; /* Pastel green separator */
+}
+
+.exam-display h1 {
+  /* Very Main Title */
+  margin-top: 0;
+  margin-bottom: 30px;
+  color: #1e8449; /* Leaf Green */
+  font-size: 1.75rem;
+  font-weight: 600; /* Bold */
+}
+
+.exam-display h2 {
+  /* Min Bold Text */
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 1.3rem;
+  color: #001f3f; /* Navy Blue */
+  border-bottom: 1px solid #d9f4dd; /* Pastel green border */
+  padding-bottom: 10px;
+  font-weight: 600; /* Bold */
+}
+
+.question-block {
+  margin-bottom: 30px;
+}
+
+.question-text {
+  /* Simple Text (?) - Let's make it bold leaf green */
+  font-weight: 600; /* Bold */
+  margin-bottom: 15px;
+  font-size: 1.05rem;
+  color: #1e8449; /* Leaf Green */
+}
+
+.options-list {
+  list-style: none;
+  padding-left: 25px;
+  margin: 0;
+}
+
+.options-list li {
+  /* Simple Text */
+  margin-bottom: 10px;
+  color: #1e8449; /* Leaf Green */
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Action buttons at the bottom */
+.action-buttons {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #d9f4dd; /* Pastel green separator */
+  display: flex;
+  justify-content: flex-start;
+  gap: 15px;
+}
+
+/* Primary Button Style */
+.btn-download {
+  background-color: #001f3f; /* Navy Blue background */
+  color: #ffffff; /* White text */
+  border-color: #001f3f;
+  margin-top: 0;
+  margin-right: 0;
+}
+.btn-download:hover {
+  background-color: #003366; /* Slightly lighter navy */
+  border-color: #003366;
+  opacity: 1;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Secondary Button Style */
+.btn-share {
+  background-color: #ffffff; /* White background */
+  color: #001f3f; /* Navy Blue text */
+  border: 1px solid #d9f4dd; /* Pastel green border */
+  margin-top: 0;
+  margin-right: 0;
+}
+.btn-share:hover {
+  background-color: #f7fdf7; /* Very light pastel green hover */
+  opacity: 1;
+  box-shadow: none;
+}
+
+
+/* Sidebar */
+
+/* src/Sidebar.css */
+.sidebar {
+  width: 350px;
+  padding: 30px;
+  background-color: #ffffff; /* White Background */
+  border-right: 1px solid #d9f4dd; /* Pastel green border/separator */
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  flex-shrink: 0;
+  transition: margin 0.5s ease-in-out, max-width 0.5s ease-in-out,
+    box-shadow 0.5s ease-in-out, border 0.5s ease-in-out;
+  border-radius: 0;
+}
+
+/* Style sidebar differently in initial view */
+.initial-view .sidebar {
+  width: auto;
+  max-width: 600px;
+  border: 1px solid #d9f4dd; /* Pastel green border when centered */
+  border-radius: 8px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+  margin-top: 0;
+}
+
+.sidebar-section h2 {
+  /* Min Bold Text */
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-size: 1.3rem;
+  color: #001f3f; /* Navy Blue */
+  font-weight: 600;
+}
+
+.sidebar-section p {
+  /* Simple Text */
+  font-size: 0.95rem;
+  color: #1e8449; /* Leaf Green */
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+.slider-container {
+  margin-bottom: 20px;
+}
+
+.slider-container label {
+  /* Simple Text */
+  display: block;
+  margin-bottom: 8px;
+  font-size: 1rem;
+  color: #1e8449; /* Leaf Green */
+}
+
+.slider {
+  width: 100%;
+  cursor: pointer;
+  accent-color: #001f3f; /* Navy Blue */
+  background-color: #d9f4dd; /* Pastel Green track */
+  height: 7px;
+  border-radius: 3.5px;
+  appearance: none;
+  -webkit-appearance: none;
+}
+.slider::-webkit-slider-runnable-track {
+  height: 7px;
+  background: #d9f4dd; /* Pastel Green */
+  border-radius: 3.5px;
+}
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  margin-top: -4.5px;
+  background: #001f3f; /* Navy Blue */
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.slider::-moz-range-track {
+  height: 7px;
+  background: #d9f4dd; /* Pastel Green */
+  border-radius: 3.5px;
+}
+.slider::-moz-range-thumb {
+  background: #001f3f; /* Navy Blue */
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+}
+
+/* Custom File Input Styling */
+.file-input-container {
+  display: flex;
+  align-items: stretch;
+  margin-bottom: 20px;
+  gap: 0;
+}
+
+/* Secondary Button Style for Choose File */
+.btn-choose-file {
+  background-color: #ffffff; /* White background */
+  color: #001f3f; /* Navy Blue text */
+  border: 1px solid #d9f4dd; /* Pastel green border */
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right: none;
+  margin-right: 0;
+  margin-top: 0;
+}
+.btn-choose-file:hover {
+  background-color: #f7fdf7; /* Very light pastel green hover */
+  opacity: 1;
+  box-shadow: none;
+}
+
+.file-name {
+  font-size: 0.9rem;
+  color: #1e8449; /* Leaf Green text */
+  flex-grow: 1;
+  padding: 10px 12px;
+  border: 1px solid #d9f4dd; /* Pastel green border */
+  border-left: none;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+  background-color: #f7fdf7; /* Pastel green background */
+  line-height: 1.4;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-top: 0;
+}
+
+/* Primary Button Styles */
+.btn-regenerate,
+.btn-analyze {
+  background-color: #001f3f; /* Navy Blue background */
+  color: #ffffff; /* White text */
+  border-color: #001f3f;
+  width: 100%;
+  padding: 12px;
+  margin-top: 15px;
+  margin-right: 0;
+}
+.btn-regenerate:hover,
+.btn-analyze:hover {
+  background-color: #003366; /* Slightly lighter navy */
+  border-color: #003366;
+  opacity: 1;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}

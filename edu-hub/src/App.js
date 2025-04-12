@@ -2,7 +2,7 @@
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
-import SignUp from "./pages/Singup";
+import SignUp from "./pages/Singup"; // Make sure filename matches Signup if changed
 // import DashboardProfessor from "./pages/DashboardProfessor";
 // import DashboardTA from "./pages/DashboardTA";
 import DashboardStudent from "./pages/DashboardStudent";
@@ -11,9 +11,15 @@ import Navbar from "./components/Navbar";
 import { AuthProvider } from "./context/AuthContext";
 import Home from "./pages/Home";
 // import AskTA from "./pages/AskTA";
-// import ExamHelper from "./pages/ExamHelper";
+// import ExamHelper from "./pages/ExamHelper"; // Make sure to import if using route below
 import RedirectToDashboard from "./pages/RedirectToDashboard";
 import "./styles.css";
+
+import ExamCreator from "./pages/ExamCreator"; // Import ExamCreator
+
+// Consider importing ExamHelperPage if you uncomment its route below
+// import ExamHelperPage from './ExamHelperPage';
+
 
 function App() {
   return (
@@ -42,7 +48,7 @@ function App() {
                 </ProtectedRoute>
               }
             /> */}
-         <Route
+           <Route
               path="/dashboard/student"
               element={
                 <ProtectedRoute allowedRoles={["student"]}>
@@ -58,14 +64,28 @@ function App() {
                 </ProtectedRoute>
               }
             /> */}
+
+            {/* --- ADDED ROUTE FOR PRACTICE GENERATOR --- */}
+            <Route
+              path="/practice-generator"
+              element={
+                <ProtectedRoute allowedRoles={["student"]}> {/* Assuming only students access this */}
+                  <ExamCreator />
+                </ProtectedRoute>
+              }
+            />
+            {/* --- END ADDED ROUTE --- */}
+
             {/* <Route
               path="/exam-helper"
               element={
                 <ProtectedRoute allowedRoles={["student"]}>
-                  <ExamHelper />
-                </ProtectedRoute>
+                   {/* <ExamHelper /> Uncomment import above if using this */}
+                   {/* OR <ExamHelperPage/> if you created that separate page */}
+                {/* </ProtectedRoute>
               }
             /> */}
+
           </Routes>
         </div>
       </Router>
