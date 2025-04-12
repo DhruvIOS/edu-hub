@@ -2,16 +2,16 @@
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
-import SignUp from "./pages/SignUp";
-import DashboardProfessor from "./pages/DashboardProfessor";
-import DashboardTA from "./pages/DashboardTA";
-import DashboardStudent from "./pages/DashboardStudent";
-import ProtectedRoute from "./components/ProtectedRoute";
+import SignUp from "./pages/Singup";
+// import DashboardProfessor from "./pages/DashboardProfessor";
+// import DashboardTA from "./pages/DashboardTA";
+// import DashboardStudent from "./pages/DashboardStudent";
+// import ProtectedRoute from "./components/ProtectedRoute";
 import Navbar from "./components/Navbar";
 import { AuthProvider } from "./context/AuthContext";
 import Home from "./pages/Home";
-import AskTA from "./pages/AskTA";
-import ExamHelper from "./pages/ExamHelper";
+// import AskTA from "./pages/AskTA";
+// import ExamHelper from "./pages/ExamHelper";
 import "./styles.css";
 
 function App() {
@@ -24,46 +24,46 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
-            <Route
+            {/* <Route
               path="/dashboard/prof"
               element={
                 <ProtectedRoute allowedRoles={["prof"]}>
                   <DashboardProfessor />
                 </ProtectedRoute>
               }
-            />
-            <Route
+            /> */}
+            {/* <Route
               path="/dashboard/ta"
               element={
                 <ProtectedRoute allowedRoles={["ta"]}>
                   <DashboardTA />
                 </ProtectedRoute>
               }
-            />
-            <Route
+            /> */}
+            {/* <Route
               path="/dashboard/student"
               element={
                 <ProtectedRoute allowedRoles={["student"]}>
                   <DashboardStudent />
                 </ProtectedRoute>
               }
-            />
-            <Route
+            /> */}
+            {/* <Route
               path="/ask"
               element={
                 <ProtectedRoute allowedRoles={["student"]}>
                   <AskTA />
                 </ProtectedRoute>
               }
-            />
-            <Route
+            /> */}
+            {/* <Route
               path="/exam-helper"
               element={
                 <ProtectedRoute allowedRoles={["student"]}>
                   <ExamHelper />
                 </ProtectedRoute>
               }
-            />
+            /> */}
           </Routes>
         </div>
       </Router>
