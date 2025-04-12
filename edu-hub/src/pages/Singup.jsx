@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { auth } from "../firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-
 import { useAuth } from "../context/AuthContext";
 import { useNavigate, useSearchParams } from "react-router-dom";
 
@@ -18,9 +17,10 @@ const Signup = () => {
   const [role, setRole] = useState(initialRole);
   const [isVisible, setVisible] = useState(false);
 
-  const handleSingup = async (e) => {
+  const handleSignup = async (e) => {
     e.preventDefault();
     try {
+      console.log("Signing up with role:", role);
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       const idToken = await userCredential.user.getIdToken();
 
@@ -33,13 +33,14 @@ const Signup = () => {
           firstName,
           lastName,
           email,
-          role,
+          role, // Send role with correct capitalization
           password,
           token: idToken,
         }),
       })
         .then((response) => response.json())
         .then((data) => {
+          console.log("Signing up with role:", role);
           alert(data.message);
         })
         .catch((error) => {
@@ -56,7 +57,7 @@ const Signup = () => {
     <div className="dashboard login-box">
       <h2 className="text-center">Sign Up to EDU-HUB</h2>
 
-      <form onSubmit={handleSingup}>
+      <form onSubmit={handleSignup}>
         <label>Select your role:</label>
         <select
           className="input-field"
