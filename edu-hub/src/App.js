@@ -3,9 +3,9 @@ import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <h1>EDU-HUB</h1>
-      <h3>By Jagrat</h3>
+    <div className="text-red-500 text-center">
+      <h1 >EDU-HUB</h1>
+      <p>Hi</p>
     </div>
   );
 }
