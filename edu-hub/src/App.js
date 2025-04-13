@@ -19,7 +19,7 @@ import "./styles.css";
 import ExamHelper from "./pages/ExamHelper"; // At the top
 import ExamCreator from "./pages/ExamCreator"; // Import ExamCreator
 import AbouteMe from "./pages/AboutMe"
-
+import Contact from './pages/Contact'
 // Consider importing ExamHelperPage if you uncomment its route below
 // import ExamHelperPage from './ExamHelperPage';
 
@@ -57,6 +57,15 @@ function App() {
               element={
 
                   <AbouteMe />
+
+              }
+            />
+
+<Route
+              path="/contact"
+              element={
+
+                  <Contact />
 
               }
             />

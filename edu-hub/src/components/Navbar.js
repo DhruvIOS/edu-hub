@@ -19,7 +19,7 @@ const Navbar = () => {
       <div className="navbar-right">
         <Link to="/about">About Us</Link>
         <span className="divider">|</span>
-        <Link to="/help">Help</Link>
+        <Link to="/contact">Help</Link>
 
         {currentUser && (
           <>

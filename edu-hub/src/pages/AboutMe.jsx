@@ -38,14 +38,14 @@ const AboutMe = () => {
         </ul>
       </div>
 
-      {/* <div className="text-center mt-12">
+      <div className="text-center mt-12">
         <a
           href="/contact"
           className="inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-xl transition"
         >
           Contact Us
         </a>
-      </div> */}
+      </div>
     </div>
   );
 };
