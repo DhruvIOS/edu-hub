@@ -51,6 +51,15 @@ function App() {
                 </ProtectedRoute>
               }
             />
+
+<Route
+              path="/about"
+              element={
+
+                  <AbouteMe />
+
+              }
+            />
             <Route
               path="/dashboard/ta"
               element={
