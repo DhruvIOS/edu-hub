@@ -1,0 +1,16 @@
+{
+  "name": "edu-hub",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "install-server": "cd backend && npm install",
+    "start-server": "cd backend && node server.js",
+    "install-client": "cd edu-hub && npm install",
+    "build-client": "cd edu-hub && npm run build",
+    "start-client": "cd edu-hub && npm run start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
