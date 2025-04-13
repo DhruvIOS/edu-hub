@@ -9,7 +9,7 @@ import DashboardStudent from "./pages/DashboardStudent";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Navbar from "./components/Navbar";
 import { AuthProvider } from "./context/AuthContext";
-import Home from "./pages/home";
+import Home from "./pages/Home";
 import AskTA from "./pages/AskTA";
 import TAChatPanel from "./pages/TAChatPanel"
 // import ExamHelper from "./pages/ExamHelper"; // Make sure to import if using route below
@@ -18,6 +18,7 @@ import "./styles.css";
 //import ExamHelperPage from './pages/ExamHelperPage'; // <-- Add this 
 import ExamHelper from "./pages/ExamHelper"; // At the top
 import ExamCreator from "./pages/ExamCreator"; // Import ExamCreator
+import AbouteMe from "./pages/AboutMe"
 
 // Consider importing ExamHelperPage if you uncomment its route below
 // import ExamHelperPage from './ExamHelperPage';
