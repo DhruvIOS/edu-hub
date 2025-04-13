@@ -9,7 +9,7 @@ import DashboardStudent from "./pages/DashboardStudent";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Navbar from "./components/Navbar";
 import { AuthProvider } from "./context/AuthContext";
-import Home from "./pages/Home";
+import Home from "./pages/home";
 import AskTA from "./pages/AskTA";
 import TAChatPanel from "./pages/TAChatPanel"
 // import ExamHelper from "./pages/ExamHelper"; // Make sure to import if using route below
