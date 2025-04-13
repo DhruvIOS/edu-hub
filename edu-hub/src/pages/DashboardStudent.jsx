@@ -27,11 +27,7 @@ const DashboardStudent = () => {
           <p>Upload your exam and get a smart, AI-powered study plan.</p>
         </Link>
 
-        <Link to="/ai-helper" className="dashboard-card">
-          <div className="card-icon">🧠</div>
-          <h3>EDU AI</h3>
-          <p>Stuck? Ask EDU AI to explain any topic in seconds.</p>
-        </Link>
+    
 
         <Link to="/practice-generator" className="dashboard-card">
           <div className="card-icon">📝</div>

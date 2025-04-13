@@ -22,10 +22,10 @@ const Home = () => {
             <li>✅ Upload exams & get personalized study plans</li>
             <li>✅ Practice with AI-generated questions</li>
           </ul>
-
+{/* 
           <Link to="/exam-helper" className="cta-btn ghost">
             🚀 Try EDU AI Now
-          </Link>
+          </Link> */}
         </div>
       </main>
     </div>

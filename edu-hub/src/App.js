@@ -11,6 +11,7 @@ import Navbar from "./components/Navbar";
 import { AuthProvider } from "./context/AuthContext";
 import Home from "./pages/Home";
 import AskTA from "./pages/AskTA";
+import TAChatPanel from "./pages/TAChatPanel"
 // import ExamHelper from "./pages/ExamHelper"; // Make sure to import if using route below
 import RedirectToDashboard from "./pages/RedirectToDashboard";
 import "./styles.css";
@@ -38,6 +39,14 @@ function App() {
               element={
                 <ProtectedRoute allowedRoles={["professor"]}>
                   <DashboardProfessor />
+                </ProtectedRoute>
+              }
+            />
+             <Route
+              path="/ta-chat"
+              element={
+                <ProtectedRoute allowedRoles={["ta"]}>
+                  <TAChatPanel />
                 </ProtectedRoute>
               }
             />
@@ -78,7 +87,10 @@ function App() {
 
             <Route path="/ask" element={<AskTA />} />
             
-            <Route path="/exam-helper" element={<ExamHelper />} />
+            <Route path="/exam-helper" element={
+            
+            
+              <ExamHelper /> } /> 
             {/* --- END ADDED ROUTE --- */}
 {/* 
              <Route
