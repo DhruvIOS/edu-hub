@@ -100,7 +100,7 @@ function ExamHelper() {
       }
 
       try {
-        const response = await fetch('http://localhost:5000/api/analysis/analyze', {
+        const response = await fetch('https://edu-hub-cg1z.onrender.com/api/analysis/analyze', {
           method: 'POST',
           body: formData,
         });

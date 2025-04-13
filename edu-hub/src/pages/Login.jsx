@@ -36,7 +36,7 @@ const Login = () => {
       const firebaseUser = await signInWithEmailAndPassword(auth, email, password);
       const idToken = await firebaseUser.user.getIdToken();
   
-      const res = await fetch("http://localhost:5000/api/auth/login", {
+      const res = await fetch("https://edu-hub-cg1z.onrender.com/api/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ token: idToken }),

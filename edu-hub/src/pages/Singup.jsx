@@ -24,7 +24,7 @@ const Signup = () => {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       const idToken = await userCredential.user.getIdToken();
 
-      await fetch("http://localhost:5000/api/auth/signup", {
+      await fetch("https://edu-hub-cg1z.onrender.com/api/auth/signup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
