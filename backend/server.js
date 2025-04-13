@@ -9,7 +9,7 @@ import mongoose from "mongoose";
 import cors from "cors";
 import authRoutes from "./routes/authRoutes.js";
 
-
+import analysisRoutes from "./routes/analysis.js"
 
 
 
@@ -27,10 +27,13 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopol
     .catch(err => console.error(err));
 
 
-
+    app.get('/api/test', (req, res) => {
+      res.send('Backend is working!');
+  });
 
 
 app.use("/api/auth", authRoutes);
+app.use('/api/analysis', analysisRoutes);
 
 
 
